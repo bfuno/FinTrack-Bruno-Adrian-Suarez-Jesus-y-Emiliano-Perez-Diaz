@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal - Emiliano</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#38a169', 
+                        'dark-green': '#2f855a',
+                        'light-green-btn': '#48bb78',
+                        'menu-bg': '#38a169', /* El verde principal del menú */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos base para el layout de escritorio/tablet */
+        body {
+            background-color: #f7fafc; 
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            margin: 0;
+            overflow: hidden; /* Evita scroll en el cuerpo, el contenido principal hará scroll */
+        }
+
+        /* Estilo para la barra lateral (Sidebar) */
+        .sidebar {
+            width: 300px; /* Ancho fijo para la barra lateral en escritorio */
+            background-color: #38a169; /* Verde oscuro del diseño */
+            padding: 30px 20px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            border-top-right-radius: 20px; /* Esquina superior derecha redondeada */
+            border-bottom-right-radius: 20px; /* Esquina inferior derecha redondeada */
+            height: 100vh;
+        }
+
+        /* Estilo para el botón con efecto 3D */
+        .menu-button {
+            background-color: #48bb78; /* Verde más claro del botón */
+            color: white;
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600; /* semi-bold */
+            padding: 10px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: left;
+            box-shadow: 0 4px 0 0 #2f855a; /* Sombra para simular el relieve */
+            transition: all 0.1s ease;
+        }
+        .menu-button:active {
+            box-shadow: none;
+            transform: translateY(4px);
+        }
+
+        /* Área de Contenido Principal */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px 40px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-y: auto; /* Permite el scroll vertical en el contenido */
+        }
+
+        /* Estilo del botón de cerrar sesión */
+        .logout-button {
+            background: none;
+            color: #4a5568; /* gris oscuro */
+            border: 2px solid #4a5568;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s;
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logout-button:hover {
+            background-color: #e2e8f0;
+        }
+
+        /* Placeholder para el área de transacciones */
+        .transactions-placeholder {
+            background-color: #e0e0e0; /* Gris de la imagen */
+            height: 400px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+
+        <div class="flex items-center mb-10">
+            <div class="w-16 h-16 rounded-full bg-black flex items-center justify-center mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                </svg>
+            </div>
+            <h2 class="text-xl font-bold text-white">Emiliano Perez Diaz</h2>
+        </div>
+
+        <nav>
+            <button class="menu-button w-full" onclick="navigate('operaciones')">operaciones</button>
+            <button class="menu-button w-full" onclick="navigate('crear_categoria')">crear categoria</button>
+            <button class="menu-button w-full" onclick="navigate('balance')">balance</button>
+        </nav>
+
+        <div class="flex-grow"></div> 
+        
+    </div>
+
+    <div class="main-content">
+        
+        <h1 class="text-3xl font-bold text-gray-700 uppercase mb-4 tracking-wider">últimas transacciones</h1>
+
+        <div class="transactions-placeholder">
+            </div>
+        
+        <div class="transactions-placeholder mt-4"></div>
+        <div class="transactions-placeholder mt-4"></div>
+        <div class="transactions-placeholder mt-4"></div>
+
+        <button class="logout-button" onclick="logout()">cerrar sesion</button>
+
+    </div>
+
+    <script>
+        function navigate(section) {
+            console.log(`Navegando a la sección: ${section}`);
+            alert(`Simulación: Ir a la página de ${section}.`);
+        }
+
+        function logout() {
+            console.log('Cerrando sesión...');
+            alert('Sesión cerrada. ¡Adiós, Emiliano!');
+        }
+    </script>
+</body>
+</html>
+
+

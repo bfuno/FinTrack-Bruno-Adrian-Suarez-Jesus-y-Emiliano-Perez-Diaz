@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Categoría</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #ffffff;
+    }
+
+ 
+    .header {
+      background-color: #2e7d32;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      border-radius: 0 0 20px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .back-btn {
+      position: absolute;
+      left: 15px;
+      top: 12px;
+      background-color: white;
+      color: #2e7d32;
+      border: none;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    
+    .container {
+      padding: 20px;
+      max-height: 100vh;
+      overflow-y: auto;
+      padding-bottom: 40px;
+    }
+
+   
+    .radio-group {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 30px;
+      font-size: 18px;
+    }
+
+   
+    h3 {
+      font-weight: bold;
+      margin-bottom: 10px;
+      margin-left: 10px;
+    }
+
+    .symbols {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .symbol {
+      width: 70px;
+      height: 70px;
+      background-color: #e6e6e6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s, background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .symbol img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .symbol:hover {
+      transform: scale(1.1);
+      background-color: #c8e6c9;
+    }
+
+    .symbol.active {
+      background-color: #4caf50;
+    }
+
+  
+    .colors {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .color {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #ccc;
+      transition: transform 0.2s, border 0.2s;
+    }
+
+    .color:hover {
+      transform: scale(1.1);
+      border: 2px solid black;
+    }
+
+    .color.active {
+      border: 3px solid #000;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <button class="back-btn" onclick="history.back()">←</button>
+    <h2>Crear Categoría</h2>
+  </div>
+
+  <div class="container">
+    <div class="radio-group">
+      <label><input type="radio" name="tipo" checked> Ingreso</label>
+      <label><input type="radio" name="tipo"> Gastos</label>
+    </div>
+
+    <h3>Símbolos</h3>
+    <div class="symbols">
+      <div class="symbol"><img src="https://img.icons8.com/ios-filled/100/shopping-cart.png" alt=""></div>
+      <div class="symbol"><img src="https://img.icons8.com/ios-filled/100/shopping-bag.png" alt=""></div>
+      <div class="symbol"><img src="https://img.icons8.com/ios-filled/100/hamburger.png" alt=""></div>
+      <div class="symbol"><img src="https://img.icons8.com/ios-filled/100/like--v1.png" alt=""></div>
+      <div class="symbol"><img src="https://img.icons8.com/ios-filled/100/family.png" alt=""></div>
+      <div class="symbol"><img src="https://img.icons8.com/ios-filled/100/gift.png" alt=""></div>
+      <div class="symbol"><img src="grupos.png" alt=""></div>
+      <div class="symbol"><img src="https://img.icons8.com/ios-filled/100/dog.png" alt=""></div>
+      <div class="symbol"><img src="https://img.icons8.com/ios-filled/100/student-center.png" alt=""></div>
+    </div>
+
+    <h3>Colores</h3>
+    <div class="colors">
+      <div class="color" style="background-color: red;"></div>
+      <div class="color" style="background-color: orange;"></div>
+      <div class="color" style="background-color: yellow;"></div>
+      <div class="color" style="background-color: green;"></div>
+      <div class="color" style="background-color: blue;"></div>
+      <div class="color" style="background-color: purple;"></div>
+      <div class="color" style="background-color: cyan;"></div>
+    </div>
+  </div>
+
+  <script>
+ 
+    const symbols = document.querySelectorAll('.symbol');
+    symbols.forEach(sym => {
+      sym.addEventListener('click', () => {
+        symbols.forEach(s => s.classList.remove('active'));
+        sym.classList.add('active');
+      });
+    });
+
+
+    const colors = document.querySelectorAll('.color');
+    colors.forEach(col => {
+      col.addEventListener('click', () => {
+        colors.forEach(c => c.classList.remove('active'));
+        col.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operaciones</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #e8e8e8;
+    }
+
+
+    .header {
+      background-color: #2e7d32;
+      color: white;
+      border-radius: 0 0 25px 25px;
+      text-align: center;
+      padding: 15px;
+      position: relative;
+    }
+
+    .back-btn {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      background-color: white;
+      color: #2e7d32;
+      border: none;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .header h2 {
+      margin: 0;
+      font-weight: bold;
+      font-size: 22px;
+    }
+
+ 
+    .toggle-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      gap: 40px;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .toggle-btn.active {
+      text-shadow: 0 0 10px white;
+    }
+
+  
+    .submenu {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 15px 0;
+    }
+
+    .submenu button {
+      background: none;
+      border: none;
+      font-size: 16px;
+      color: gray;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submenu .active {
+      background-color: #2e7d32;
+      color: white;
+      border-radius: 8px;
+      padding: 5px 15px;
+    }
+
+
+    .content {
+      background-color: #dcdcdc;
+      border-radius: 10px;
+      padding: 20px;
+      width: 90%;
+      margin: auto;
+    }
+
+    .date {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .operation {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .details strong {
+      font-size: 16px;
+    }
+
+    .details small {
+      color: gray;
+      font-size: 13px;
+    }
+
+    .amount {
+      font-weight: bold;
+    }
+
+    @media (max-width: 480px) {
+      .toggle-container {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <button class="back-btn" onclick="history.back()">←</button>
+    <h2>Operaciones</h2>
+
+    <div class="toggle-container">
+      <button class="toggle-btn active" id="btnGastos">Gastos</button>
+      <button class="toggle-btn" id="btnIngresos">Ingresos</button>
+    </div>
+  </div>
+
+  <div class="submenu">
+    <button class="active">Día</button>
+    <button>Semana</button>
+    <button>Mes</button>
+  </div>
+
+  <div class="content">
+    <div class="date">01 de Noviembre</div>
+
+    <div class="operation">
+      <div class="left">
+        <div class="circle" style="background-color: #ccff00;"></div>
+        <div class="details">
+          <strong>Transporte</strong>
+          <small>Uber al trabajo</small>
+        </div>
+      </div>
+      <div class="amount">$56.40</div>
+    </div>
+
+    <div class="operation">
+      <div class="left">
+        <div class="circle" style="background-color: cyan;"></div>
+        <div class="details">
+          <strong>Alimentación</strong>
+          <small>Verduras en el mercado</small>
+        </div>
+      </div>
+      <div class="amount">$31.53</div>
+    </div>
+
+    <div class="operation">
+      <div class="left">
+        <div class="circle" style="background-color: yellow;"></div>
+        <div class="details">
+          <strong>Restaurante</strong>
+          <small>Cena con amigos</small>
+        </div>
+      </div>
+      <div class="amount">$112.50</div>
+    </div>
+  </div>
+
+  <script>
+
+    const gastosBtn = document.getElementById("btnGastos");
+    const ingresosBtn = document.getElementById("btnIngresos");
+
+    gastosBtn.addEventListener("click", () => {
+      gastosBtn.classList.add("active");
+      ingresosBtn.classList.remove("active");
+    });
+
+    ingresosBtn.addEventListener("click", () => {
+      ingresosBtn.classList.add("active");
+      gastosBtn.classList.remove("active");
+    });
+  </script>
+
+</body>
+</html>
+
